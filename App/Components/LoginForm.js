@@ -1,5 +1,6 @@
 //import liraries
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 import { View, Text, TextInput, TouchableOpacity, Alert, Button ,StyleSheet ,StatusBar} from 'react-native';
 
 const onButtonPress = () => {
@@ -9,6 +10,9 @@ const onButtonPress = () => {
 
 // create a component
 class LoginForm extends Component {
+    static propTypes = {
+      onPress: PropTypes.func,
+    }
     render() {
         return (
             <View style={styles.container}>
@@ -28,7 +32,7 @@ class LoginForm extends Component {
                            placeholderTextColor='rgba(225,225,225,0.7)' 
                            secureTextEntry/>
                  {/*   <Button onPress={onButtonPress} title = 'Login' style={styles.loginButton} /> */}
-              <TouchableOpacity style={styles.buttonContainer} onPress={onButtonPress}>
+              <TouchableOpacity style={styles.buttonContainer} onPress={this.props.onPress}>
                     <Text  style={styles.buttonText}>LOGIN</Text>
                 </TouchableOpacity> 
             </View>
